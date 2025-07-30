@@ -4,17 +4,27 @@ const successMessage = document.getElementById('success-msg') || document.queryS
 
 if (contactForm && successMessage) {
     contactForm.addEventListener('submit', (e) => {
-        if (!contactForm.hasAttribute('action')) e.preventDefault();
+        // منع الإرسال الافتراضي فقط إذا لم يكن هناك action محدد
+        if (!contactForm.action || contactForm.action === window.location.href) {
+            e.preventDefault();
+        }
 
+        // إظهار رسالة النجاح
         successMessage.classList.add('visible');
         successMessage.style.display = 'inline';
 
+        // إخفاء الرسالة بعد 5 ثوان
         setTimeout(() => {
             successMessage.classList.remove('visible');
-            successMessage.style.display = 'none';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 300);
         }, 5000);
 
-        contactForm.reset();
+        // إعادة تعيين النموذج
+        setTimeout(() => {
+            contactForm.reset();
+        }, 500);
     });
 }
 
@@ -70,7 +80,10 @@ if (!scrollToTopBtn) {
     scrollToTopBtn = document.createElement('button');
     scrollToTopBtn.className = 'scroll-to-top';
     scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
-    scrollToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    // التحقق من وجود Font Awesome قبل استخدام الأيقونة
+    const iconContent = document.querySelector('.fa-chevron-up') ? 
+        '<i class="fas fa-chevron-up"></i>' : '↑';
+    scrollToTopBtn.innerHTML = iconContent;
     document.body.appendChild(scrollToTopBtn);
 }
 
@@ -143,6 +156,20 @@ window.addEventListener('load', function() {
   const loader = document.getElementById('loader-overlay');
   if (loader) {
     loader.classList.add('hide');
-    setTimeout(() => loader.remove(), 700); // إزالة من الـ DOM بعد الأنيميشن
+    setTimeout(() => {
+      if (loader.parentNode) {
+        loader.remove(); // إزالة من الـ DOM بعد الأنيميشن
+      }
+    }, 700);
+  }
+});
+
+// Error handling for any uncaught JavaScript errors
+window.addEventListener('error', function(event) {
+  console.warn('JavaScript error caught:', event.error);
+  // Hide loader if there's an error
+  const loader = document.getElementById('loader-overlay');
+  if (loader) {
+    loader.classList.add('hide');
   }
 });

@@ -53,6 +53,13 @@ body {
 }
 .logo {
   width: 130px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 .links {
   position: relative;
@@ -183,7 +190,7 @@ a, a:focus, a:active {
 }
 @media (max-width: 600px) {
   .container {
-    padding: 0 5px;
+    padding: 0 8px;
     max-width: 100vw;
   }
   .features .container,
@@ -192,7 +199,7 @@ a, a:focus, a:active {
   .about-us .container,
   .contact-info {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     align-items: stretch;
     display: flex;
   }
@@ -201,17 +208,20 @@ a, a:focus, a:active {
     width: 100%;
   }
   .project-modern-img {
-    height: 140px;
+    height: 160px;
   }
   .special-heading {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    line-height: 1.3;
   }
   .footer {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    padding: 20px 0 6px 0;
   }
   #contact-form {
-    padding: 10px;
-    max-width: 98vw;
+    padding: 15px;
+    max-width: 95vw;
+    margin: 0 auto;
   }
   .social-bar-simple {
     top: auto;
@@ -219,13 +229,18 @@ a, a:focus, a:active {
     left: 50%;
     transform: translateX(-50%) translateY(0);
     flex-direction: row;
-    padding: 4px 2px;
-    border-radius: 9px 9px 0 0;
+    padding: 6px 4px;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
   }
   .social-bar-simple a {
-    font-size: 1.05em;
+    font-size: 1.1em;
     margin-bottom: 0;
-    margin-right: 8px;
+    margin-right: 10px;
+    padding: 4px;
+  }
+  .social-bar-simple a:last-child {
+    margin-right: 0;
   }
 }
 /* Landing */
@@ -693,6 +708,31 @@ a, a:focus, a:active {
 /* Utility Classes */
 .visible { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
 .hidden { opacity: 0 !important; transform: translateY(30px) scale(0.97) !important; }
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .nav-menu li a,
+  .feat h3,
+  .srv h3,
+  .special-heading {
+    font-weight: 700;
+  }
+  
+  .service-box,
+  .project-modern,
+  .feat {
+    border: 2px solid var(--text-dark);
+  }
+}
 /* Scroll To Top Button */
 .scroll-to-top {
   position: fixed;

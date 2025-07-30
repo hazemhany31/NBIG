@@ -230,35 +230,91 @@ a, a:focus, a:active {
 }
 /* Landing */
 .landing {
-  min-height: 60vh;
-  background: linear-gradient(90deg, #e3f2fd 0%, #fff 100%);
+  min-height: 80vh;
+  background: url('../images/484871684_657128943376706_1775988631967972767_n.jpg') center center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  background-attachment: fixed;
+}
+.landing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 51, 153, 0.85) 0%, rgba(0, 175, 239, 0.75) 100%);
+  z-index: 1;
 }
 .landing .intro-text {
-  background: rgba(255,255,255,0.94);
-  padding: 30px;
-  border-radius: 10px;
+  background: rgba(255,255,255,0.96);
+  padding: 40px 35px;
+  border-radius: 15px;
   text-align: center;
-  max-width: 90%;
+  max-width: 800px;
+  width: 90%;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s, transform 0.6s;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.8s, transform 0.8s;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
 }
 .landing.loaded .intro-text {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 .landing h1 {
   color: var(--main-color);
-  font-size: 2rem;
-  margin-bottom: 12px;
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  line-height: 1.2;
 }
 .landing p {
   color: var(--text-dark);
-  font-size: 1.08rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Responsive adjustments for landing */
+@media (max-width: 768px) {
+  .landing {
+    min-height: 70vh;
+    background-attachment: scroll;
+  }
+  .landing .intro-text {
+    padding: 30px 25px;
+    max-width: 95%;
+  }
+  .landing h1 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+  .landing p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing {
+    min-height: 60vh;
+  }
+  .landing .intro-text {
+    padding: 25px 20px;
+  }
+  .landing h1 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+  }
+  .landing p {
+    font-size: 1rem;
+  }
 }
 /* Section Headings */
 .special-heading {

@@ -1,0 +1,38 @@
+{
+  "emmet.includeLanguages": {
+    "javascript": "html"
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "html.autoClosingTags": true,
+  "html.format.indentHandlebars": true,
+  "css.validate": true,
+  "css.lint.duplicateProperties": "warning",
+  "css.lint.unknownProperties": "warning",
+  "javascript.validate.enable": true,
+  "javascript.format.enable": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.port": 3000,
+  "liveServer.settings.CustomBrowser": "default",
+  "files.associations": {
+    "*.html": "html",
+    "*.css": "css",
+    "*.js": "javascript"
+  },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "editor.wordWrap": "on",
+  "html.format.wrapLineLength": 120,
+  "css.format.spaceAroundSelectorSeparator": true,
+  "javascript.preferences.quoteStyle": "single",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "nbig-developments-website",
+  "version": "1.0.0",
+  "description": "NBIG Developments - Leading real estate development company website",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000 --open=index.html",
+    "dev": "live-server --port=3000 --open=index.html --watch=css,js",
+    "build": "echo 'Static website - no build process needed'",
+    "lint": "echo 'Add linting tools if needed'"
+  },
+  "keywords": [
+    "real-estate",
+    "development",
+    "egypt",
+    "website",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "NBIG Developments",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 11"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "."
+  }
+}
